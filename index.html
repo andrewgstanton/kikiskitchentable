@@ -1,4 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>Kiki's Kitchen Table – Shop Our Favorites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Shop Kiki's favorite cookware, kitchen tools, and cozy kitchen essentials."
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #faf7f3;
+      color: #2b2b2b;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      padding: 2.5rem 1.5rem 1rem;
+      text-align: center;
+      background: #f3e2d5;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    header h1 {
+      margin: 0 0 0.4rem;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+    }
+    header p {
+      margin: 0.1rem 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 3rem;
+      flex: 1;
+    }
+    .intro {
+      margin-bottom: 1.75rem;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Featured item */
+    .featured {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    .featured-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #b35900;
+      margin-bottom: 0.4rem;
+    }
+    .featured-title {
+      margin: 0 0 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .featured-desc {
+      margin: 0 0 1.25rem;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .featured-button {
+      display: inline-block;
+      background: #b35900;
+      color: #fff;
+      padding: 0.75rem 1.3rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.15s ease;
+    }
+    .featured-button:hover {
+      background: #8e4600;
+    }
+
+    /* Grid for future items */
+    .section-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+    }
+    .coming-soon {
+      font-size: 0.85rem;
+      color: #777;
+      margin: 0 0 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem 1rem 0.9rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.9rem;
+    }
+    .card-title {
+      margin: 0 0 0.35rem;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+    .card-desc {
+      margin: 0 0 0.8rem;
+      color: #666;
+      line-height: 1.4;
+      font-size: 0.88rem;
+    }
+    .card-link {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #b35900;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .disclosure {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #777;
+      line-height: 1.5;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      padding: 1.5rem 1rem 1.75rem;
+    }
+
+    @media (min-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kiki's Kitchen Table</h1>
+    <p>Simple tools we actually use in our tiny kitchen.</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>
+        Thank you for watching and supporting <strong>Kiki's Kitchen Table</strong>.
+        This page shares the kitchen tools and little favorites that Kiki
+        genuinely uses at home. Some of these links are affiliate links, which
+        help our channel at no extra cost to you. 💛
+      </p>
+    </section>
+
+    <!-- FEATURED ITEM (one product now) -->
+    <section class="featured">
+      <div class="featured-label">Featured Item</div>
+      <h2 class="featured-title">Kiki’s Current Favorite Kitchen Essential</h2>
+      <p class="featured-desc">
+        This is the one item Kiki has been reaching for the most lately.
+        Reliable, simple, and something we feel good recommending.
+      </p>
+
+      <!-- TODO: replace this URL with her real affiliate link -->
+      <a
+        class="featured-button"
+        href="https://www.amazon.com/your-affiliate-link-here"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on Amazon
+      </a>
+    </section>
+
+    <!-- FUTURE FAVORITES (easy to expand later) -->
+    <section>
+      <h3 class="section-heading">More kitchen favorites (coming soon)</h3>
+      <p class="coming-soon">
+        As Kiki shares more recipes and routines, we’ll add the exact pans, tools,
+        and cozy kitchen pieces here.
+      </p>
+
+      <div class="grid">
+        <!-- EXAMPLE CARD (you can duplicate this when ready) -->
+        <!--
+        <article class="card">
+          <h4 class="card-title">Everyday Nonstick Frying Pan</h4>
+          <p class="card-desc">
+            Light, easy to clean, and perfect for quick eggs and stir-fries.
+          </p>
+          <a
+            class="card-link"
+            href="https://www.amazon.com/your-second-affiliate-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Amazon
+          </a>
+        </article>
+        -->
+      </div>
+    </section>
+
+    <section class="disclosure">
+      <p><strong>Affiliate Disclosure</strong></p>
+      <p>
+        As an Amazon Associate, we earn from qualifying purchases. This does not
+        change the price for you, but it helps support Kiki's Kitchen Table and
+        lets us keep making more videos. Thank you for being here. 💛
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Kiki's Kitchen Table
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
+
