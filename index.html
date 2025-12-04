@@ -8,213 +8,233 @@
     name="description"
     content="Shop Kiki's favorite cookware, kitchen tools, and cozy kitchen essentials."
   />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: #faf7f3;
-      color: #2b2b2b;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+  
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    background: #faf7f3;
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-    /* HEADER */
-    header {
-      padding: 2.5rem 1.5rem 1rem;
-      text-align: center;
-      background: #f3e2d5;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
+  /* HEADER */
+  header {
+    padding: 2.5rem 1.5rem 1rem;
+    text-align: center;
+    background: #f3e2d5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  header h1 {
+    margin: 0 0 0.4rem;
+    font-size: 2rem;
+    letter-spacing: 0.03em;
+  }
+  header p {
+    margin: 0.1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem 3.25rem;
+    flex: 1;
+  }
+  .intro {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .section-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+  }
+  .section-subtitle {
+    margin: 0 0 1.1rem;
+    font-size: 0.86rem;
+    color: #777;
+  }
+
+  /* PRODUCT GRID (Rakuten ROOM style) */
+  .product-grid {
+    display: grid;
+    /* 2 columns by default (phones + small tablets) */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    position: relative;
+  }
+
+  .product-image-link {
+    display: block;
+    position: relative;
+  }
+
+  .product-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 10px;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Little heart like ROOM (optional) */
+  .product-heart {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #b35900;
+  }
+
+  .product-body {
+    padding: 0.75rem 0.9rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .product-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b35900;
+  }
+
+  .product-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.94rem;
+    line-height: 1.4;
+  }
+
+  .product-caption {
+    margin: 0;
+    font-size: 0.84rem;
+    color: #666;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-tags {
+    margin: 0.15rem 0 0.25rem;
+    font-size: 0.78rem;
+    color: #999;
+  }
+
+  .product-cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+  }
+
+  .product-cta {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.83rem;
+    color: #b35900;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(179, 89, 0, 0.18);
+    background: #fffaf5;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .product-cta:hover {
+    background: #f6e1cf;
+  }
+
+  .product-meta {
+    font-size: 0.78rem;
+    color: #aaa;
+  }
+
+  .disclosure {
+    margin-top: 2.2rem;
+    font-size: 0.8rem;
+    color: #777;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    padding: 1.5rem 1rem 1.75rem;
+  }
+
+  @media (min-width: 768px) {
     header h1 {
-      margin: 0 0 0.4rem;
-      font-size: 2rem;
-      letter-spacing: 0.03em;
+      font-size: 2.2rem;
     }
-    header p {
-      margin: 0.1rem 0;
-      font-size: 0.95rem;
-      color: #555;
-    }
+  }
 
-    /* MAIN LAYOUT */
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 1.75rem 1.25rem 3.25rem;
-      flex: 1;
-    }
-    .intro {
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .section-heading {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0 0 0.4rem;
-    }
-    .section-subtitle {
-      margin: 0 0 1.1rem;
-      font-size: 0.86rem;
-      color: #777;
-    }
-
-    /* PRODUCT GRID (Rakuten ROOM style) */
+  /* Wider screens: 3 columns like ROOM desktop */
+  @media (min-width: 900px) {
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 1.1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+  }
 
-    .product-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      font-size: 0.9rem;
-      position: relative;
+  /* Small-screen tweaks (optional, but keeps things tidy) */
+  @media (max-width: 600px) {
+    main {
+      padding: 1.25rem 0.9rem 2.5rem;
     }
-
-    .product-image-link {
-      display: block;
-      position: relative;
-    }
-
-    .product-image {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: contain;
-      background: #ffffff;
-      padding: 10px;
-      display: block;
-    }
-
-    /* Little heart like ROOM (optional) */
-    .product-heart {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      color: #b35900;
-    }
-
     .product-body {
-      padding: 0.75rem 0.9rem 0.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
+      padding: 0.7rem 0.8rem 0.75rem;
     }
-
-    .product-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #b35900;
-    }
-
     .product-title {
-      margin: 0;
-      font-weight: 600;
-      font-size: 0.94rem;
-      line-height: 1.4;
+      font-size: 0.9rem;
     }
-
     .product-caption {
-      margin: 0;
-      font-size: 0.84rem;
-      color: #666;
-      line-height: 1.4;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 0.82rem;
     }
-
-    .product-tags {
-      margin: 0.15rem 0 0.25rem;
-      font-size: 0.78rem;
-      color: #999;
-    }
-
-    .product-cta-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.3rem;
-    }
-
     .product-cta {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.83rem;
-      color: #b35900;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(179, 89, 0, 0.18);
-      background: #fffaf5;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .product-cta:hover {
-      background: #f6e1cf;
-    }
-
-    .product-meta {
-      font-size: 0.78rem;
-      color: #aaa;
-    }
-
-    .disclosure {
-      margin-top: 2.2rem;
       font-size: 0.8rem;
-      color: #777;
-      line-height: 1.5;
-      text-align: center;
+      padding: 0.3rem 0.75rem;
     }
-
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #aaa;
-      padding: 1.5rem 1rem 1.75rem;
-    }
-
-    @media (min-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-    }
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    
-      .card img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <header>
