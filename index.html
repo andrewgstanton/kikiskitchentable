@@ -22,6 +22,8 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* HEADER */
     header {
       padding: 2.5rem 1.5rem 1rem;
       text-align: center;
@@ -38,104 +40,147 @@
       font-size: 0.95rem;
       color: #555;
     }
+
+    /* MAIN LAYOUT */
     main {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 1.75rem 1.25rem 3rem;
+      padding: 1.75rem 1.25rem 3.25rem;
       flex: 1;
     }
     .intro {
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
       color: #555;
       line-height: 1.6;
     }
 
-    /* Featured item */
-    .featured {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem 1.4rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
-    .featured-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #b35900;
-      margin-bottom: 0.4rem;
-    }
-    .featured-title {
-      margin: 0 0 0.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    .featured-desc {
-      margin: 0 0 1.25rem;
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.5;
-    }
-    .featured-button {
-      display: inline-block;
-      background: #b35900;
-      color: #fff;
-      padding: 0.75rem 1.3rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.15s ease;
-    }
-    .featured-button:hover {
-      background: #8e4600;
-    }
-
-    /* Grid for future items */
     .section-heading {
       font-size: 1rem;
       font-weight: 600;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.4rem;
     }
-    .coming-soon {
-      font-size: 0.85rem;
+    .section-subtitle {
+      margin: 0 0 1.1rem;
+      font-size: 0.86rem;
       color: #777;
-      margin: 0 0 1rem;
     }
-    .grid {
+
+    /* PRODUCT GRID (Rakuten ROOM style) */
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.1rem;
     }
-    .card {
+
+    .product-card {
       background: #fff;
-      border-radius: 12px;
-      padding: 1rem 1rem 0.9rem;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.04);
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       font-size: 0.9rem;
+      position: relative;
     }
-    .card-title {
-      margin: 0 0 0.35rem;
-      font-weight: 600;
-      font-size: 0.98rem;
+
+    .product-image-link {
+      display: block;
+      position: relative;
     }
-    .card-desc {
-      margin: 0 0 0.8rem;
-      color: #666;
-      line-height: 1.4;
-      font-size: 0.88rem;
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 10px;
+      display: block;
     }
-    .card-link {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.88rem;
+
+    /* Little heart like ROOM (optional) */
+    .product-heart {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
       color: #b35900;
     }
-    .card-link:hover {
-      text-decoration: underline;
+
+    .product-body {
+      padding: 0.75rem 0.9rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .product-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #b35900;
+    }
+
+    .product-title {
+      margin: 0;
+      font-weight: 600;
+      font-size: 0.94rem;
+      line-height: 1.4;
+    }
+
+    .product-caption {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #666;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-tags {
+      margin: 0.15rem 0 0.25rem;
+      font-size: 0.78rem;
+      color: #999;
+    }
+
+    .product-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.3rem;
+    }
+
+    .product-cta {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.83rem;
+      color: #b35900;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(179, 89, 0, 0.18);
+      background: #fffaf5;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .product-cta:hover {
+      background: #f6e1cf;
+    }
+
+    .product-meta {
+      font-size: 0.78rem;
+      color: #aaa;
     }
 
     .disclosure {
@@ -145,6 +190,7 @@
       line-height: 1.5;
       text-align: center;
     }
+
     footer {
       text-align: center;
       font-size: 0.75rem;
@@ -165,213 +211,224 @@
     <p>Simple tools I actually use in our tiny kitchen.</p>
   </header>
 
-<main>
-  <!-- FEATURED ITEM FIRST -->
- 
-  <!-- Bialetti Frying Pan item -->
+  <main>
+    <!-- INTRO ABOVE GRID -->
+    <section class="intro">
+      <p>
+        Welcome to <strong>Kiki's Kitchen Table</strong> — these are the small tools,
+        dishes, and pantry items you see in my videos. Some links are affiliate
+        links, which help our channel at no extra cost to you.
+      </p>
+    </section>
 
-<section class="featured">
-  <div class="featured-label">Featured Item</div>
+    <!-- GRID SECTION (Rakuten ROOM style) -->
+    <section>
+      <h2 class="section-heading">Kiki's Favorites</h2>
+      <p class="section-subtitle">
+        Everyday pieces from our tiny kitchen — click any card to see details.
+      </p>
 
-  <h2 class="featured-title">Bialetti Impact Textured Nonstick Oven-Safe 10in Frying Pan</h2>
+      <div class="product-grid">
+        <!-- Bialetti Pan -->
+        <article class="product-card">
+          <a
+            href="https://amzn.to/3KahTMP"
+            class="product-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="images/bialetti-pan.jpg"
+              alt="Bialetti 10in nonstick frying pan"
+              class="product-image"
+            />
+            <div class="product-heart">♡</div>
+          </a>
+          <div class="product-body">
+            <div class="product-label">Frying Pan</div>
+            <h3 class="product-title">
+              Bialetti Impact Textured Nonstick 10in Frying Pan
+            </h3>
+            <p class="product-caption">
+              Light, easy to clean, and perfect for everyday cooking in a small kitchen.
+            </p>
+            <p class="product-tags">#フライパン #キッチンツール</p>
+            <div class="product-cta-row">
+              <a
+                href="https://amzn.to/3KahTMP"
+                class="product-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Amazon →
+              </a>
+              <span class="product-meta">Kiki’s pick</span>
+            </div>
+          </div>
+        </article>
 
-<!-- TODO: replace this URL with her real affiliate link -->
-<!-- DEFAULT button for item -->
-<!--
-<a
-class="featured-button"
-href="https://amzn.to/3WVAhf1"
-target="_blank"
-rel="noopener noreferrer"
->
-View on Amazon
-</a>
+        <!-- Selamica Bowls -->
+        <article class="product-card">
+          <a
+            href="https://amzn.to/3WVAhf1"
+            class="product-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="images/selamica-bowls.jpg"
+              alt="Selamica mini ceramic dipping bowls, vintage blue"
+              class="product-image"
+            />
+            <div class="product-heart">♡</div>
+          </a>
+          <div class="product-body">
+            <div class="product-label">Mini Bowls</div>
+            <h3 class="product-title">
+              Selamica Mini Ceramic Dipping Bowls (Set of 6)
+            </h3>
+            <p class="product-caption">
+              Perfect for soy sauce, pickles, dipping sauces, and little snacks —
+              the vintage blue pattern adds a cozy touch.
+            </p>
+            <p class="product-tags">#小鉢 #テーブルウェア</p>
+            <div class="product-cta-row">
+              <a
+                href="https://amzn.to/3WVAhf1"
+                class="product-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Amazon →
+              </a>
+              <span class="product-meta">Set of 6</span>
+            </div>
+          </div>
+        </article>
 
--->
+        <!-- Onigiri Mold -->
+        <article class="product-card">
+          <a
+            href="https://amzn.to/49gjTNC"
+            class="product-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="images/sushi-mold-onigiri.jpg"
+              alt="Onigiri mold set"
+              class="product-image"
+            />
+            <div class="product-heart">♡</div>
+          </a>
+          <div class="product-body">
+            <div class="product-label">Kitchen Favorite</div>
+            <h3 class="product-title">Onigiri Mold Set (6-Piece)</h3>
+            <p class="product-caption">
+              Makes neat, even onigiri without sticky hands — great for lunches,
+              snacks, and quick meal prep.
+            </p>
+            <p class="product-tags">#おにぎり #お弁当</p>
+            <div class="product-cta-row">
+              <a
+                href="https://amzn.to/49gjTNC"
+                class="product-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Amazon →
+              </a>
+              <span class="product-meta">6-piece set</span>
+            </div>
+          </div>
+        </article>
 
-  <a
-    href="https://amzn.to/3KahTMP"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
- <img
-  src="images/bialetti-pan.jpg"   
-  alt="Bialetti 10in Frying Pan"
-  style="
-    width: 220px;
-    height: 160px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 12px;
-    display: block;
-    margin: 1rem auto 0.75rem;
-    padding: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  "
-/>
-  
-  </a>
+        <!-- Vegan Ramen -->
+        <article class="product-card">
+          <a
+            href="https://amzn.to/43RWNcP"
+            class="product-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="images/vege-ramen.jpg"
+              alt="Vegan ramen variety pack"
+              class="product-image"
+            />
+            <div class="product-heart">♡</div>
+          </a>
+          <div class="product-body">
+            <div class="product-label">Pantry Favorite</div>
+            <h3 class="product-title">
+              Vegan Ramen Variety Pack – 4 Flavors
+            </h3>
+            <p class="product-caption">
+              A tasty vegan ramen set with four different flavors — easy, cozy,
+              and perfect for quick lunches.
+            </p>
+            <p class="product-tags">#ラーメン #ヴィーガン</p>
+            <div class="product-cta-row">
+              <a
+                href="https://amzn.to/43RWNcP"
+                class="product-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Amazon →
+              </a>
+              <span class="product-meta">12 servings</span>
+            </div>
+          </div>
+        </article>
 
-  <p class="featured-desc">
-    I use this pan frequently because it's light and easy to clean. Order one today!
-  </p>
-</section>  
+        <!-- Calrose Rice -->
+        <article class="product-card">
+          <a
+            href="https://amzn.to/49gsG24"
+            class="product-image-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="images/calrose-rice-botan-5lb.jpg"
+              alt="Calrose Rice Botan 5 lb bag"
+              class="product-image"
+            />
+            <div class="product-heart">♡</div>
+          </a>
+          <div class="product-body">
+            <div class="product-label">Rice</div>
+            <h3 class="product-title">Calrose Rice Botan – 5 lb</h3>
+            <p class="product-caption">
+              My go-to rice for onigiri and sushi sets — fluffy, delicious, and
+              very reliable.
+            </p>
+            <p class="product-tags">#お米 #カリフォルニアライス</p>
+            <div class="product-cta-row">
+              <a
+                href="https://amzn.to/49gsG24"
+                class="product-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Amazon →
+              </a>
+              <span class="product-meta">5 lb bag</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-  <section class="featured" style="margin-top: 2rem;">
-    <div class="featured-label">Selamica Mini Ceramic Set</div>
-
-    <h2 class="featured-title">Selamica Mini Ceramic Dipping Bowls (Set of 6)</h2>
-
-    <a
-      href="https://amzn.to/3WVAhf1"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
- <img
-  src="images/selamica-bowls.jpg"   
-  alt="Selamica Ceramic Mini Dipping Bowls, Vintage Blue, Set of 6"
-  style="
-    width: 220px;
-    height: 160px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 12px;
-    display: block;
-    margin: 1rem auto 0.75rem;
-    padding: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  "
-/>
-
-    </a>
-
-    <p class="featured-desc">
-      I use these little bowls all the time for soy sauce, small sides,
-      pickles, and snacks. The vintage blue pattern adds a cozy touch to the
-      table without taking up much space.
-    </p>
-  </section>
-
-<section class="featured" style="margin-top: 2rem;">
-  <div class="featured-label">Kitchen Favorite</div>
-
-  <h2 class="featured-title">Onigiri Mold Set (6-Piece)</h2>
-
-  <a
-    href="https://amzn.to/49gjTNC"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
- <img
-  src="images/sushi-mold-onigiri.jpg"   
-  alt="Onigiri Mold Set"
-  style="
-    width: 220px;
-    height: 160px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 12px;
-    display: block;
-    margin: 1rem auto 0.75rem;
-    padding: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  "
-/>
-  
-  </a>
-
-  <p class="featured-desc">
-    This simple mold makes perfect onigiri every time — quick, even shapes
-    without sticky hands. Great for lunches, snacks, and meal prep.
-  </p>
-</section>
-
-  <!-- FOOD ITEMS -->
-<section class="featured" style="margin-top: 2rem;">
-  <div class="featured-label">Delicious Vegan Ramen Set</div>
-
-  <h2 class="featured-title">VEGAN RAMEN Variety Pack – 4 Flavors (Soy Sauce, Umakara, Miso, Tonkotsu)</h2>
-
-  <a
-    href="https://amzn.to/43RWNcP"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
- <img
-  src="images/vege-ramen.jpg"   
-  alt="Vegan Raman"
-  style="
-    width: 220px;
-    height: 160px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 12px;
-    display: block;
-    margin: 1rem auto 0.75rem;
-    padding: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  "
-/>
-  
-  </a>
-
-  <p class="featured-desc">
-    This delicious authentic vegan ramen set comes in four different flavors and serves 12.   Order it today!
-  </p>
-</section>
-
-<section class="featured" style="margin-top: 2rem;">
-  <div class="featured-label">Delicious Calrose Rice Botan - 5 Lb</div>
-
-  <h2 class="featured-title">Calrose Rice Botan - 5 Lb</h2>
-
-  <a
-    href="https://amzn.to/49gsG24"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
- <img
-  src="images/calrose-rice-botan-5lb.jpg"   
-  alt="Calrose Rice Botan - 5lb"
-  style="
-    width: 220px;
-    height: 160px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 12px;
-    display: block;
-    margin: 1rem auto 0.75rem;
-    padding: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  "
-/>
-  
-  </a>
-
-  <p class="featured-desc">
-    I use this rice frequently when I make onigiri or sushi sets.  It's quite delicious.   Order a pack today!
-  </p>
-</section>  
-
-  <!-- SHORT INTRO, MOVED BELOW FEATURED -->
-  <section class="intro" style="margin-top: 1.75rem;">
-    <p>
-      Thank you for visiting <strong>Kiki's Kitchen Table</strong>. This page
-      has the small tools and dishes you see in Kiki’s videos. Some links are
-      affiliate links, which help our channel at no extra cost to you.
-    </p>
-  </section>
-
-  
-  <!-- REQUIRED DISCLOSURE, KEPT VERY SHORT -->
-  <section class="disclosure">
-    <p>
-      <strong>Affiliate Disclosure</strong>
-    <br />
-      As an Amazon Associate, we earn from qualifying purchases.
-    </p>
-  </section>
-</main>
+    <!-- DISCLOSURE -->
+    <section class="disclosure">
+      <p>
+        <strong>Affiliate Disclosure</strong><br />
+        As an Amazon Associate, we earn from qualifying purchases.
+      </p>
+    </section>
+  </main>
 
   <footer>
     &copy; <span id="year"></span> Kiki's Kitchen Table
@@ -382,4 +439,5 @@ View on Amazon
   </script>
 </body>
 </html>
+
 
