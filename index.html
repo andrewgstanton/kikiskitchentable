@@ -1,1169 +1,901 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Kiki's Kitchen Table – Shop My Favorites</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Shop Kiki's favorite cookware, kitchen tools, and cozy kitchen essentials."
-  />
-  
+<meta charset="UTF-8">
+<title>Kiki's Kitchen Table</title>
+
 <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif;
-    background: #faf7f3;
-    color: #2b2b2b;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
 
-  /* HEADER */
-  header {
-    padding: 2.5rem 1.5rem 1rem;
-    text-align: center;
-    background: #f3e2d5;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-  header h1 {
-    margin: 0 0 0.4rem;
-    font-size: 2rem;
-    letter-spacing: 0.03em;
-  }
-  header p {
-    margin: 0.1rem 0;
-    font-size: 0.95rem;
-    color: #555;
-  }
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  margin:0;
+  background:#fafafa;
+}
 
-  /* MAIN LAYOUT */
-  main {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 1.75rem 1.25rem 3.25rem;
-    flex: 1;
-  }
-  .intro {
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.6;
-  }
+header{
+  text-align:center;
+  padding:40px 20px;
+}
 
-  .section-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 0.4rem;
-  }
-  .section-subtitle {
-    margin: 0 0 1.1rem;
-    font-size: 0.86rem;
-    color: #777;
-  }
+h1{
+  margin:0;
+  font-size:34px;
+}
 
-  /* PRODUCT GRID (Rakuten ROOM style) */
-  .product-grid {
-    display: grid;
-    /* 2 columns by default (phones + small tablets) */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.1rem;
-  }
+.subtitle{
+  color:#666;
+}
 
-  .product-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9rem;
-    position: relative;
-  }
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:28px;
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
 
-  .product-image-link {
-    display: block;
-    position: relative;
-  }
+.product-card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
 
-  .product-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: contain;
-    background: #ffffff;
-    padding: 10px;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  }
+.product-image{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
 
-  /* Little heart like ROOM (optional) */
-  .product-heart {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: #b35900;
-  }
+.product-body{
+  padding:16px;
+}
 
-  .product-body {
-    padding: 0.75rem 0.9rem 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+.product-label{
+  font-size:12px;
+  color:#999;
+  margin-bottom:6px;
+}
 
-  .product-label {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #b35900;
-  }
+.product-title{
+  margin:0 0 6px 0;
+  font-size:18px;
+}
 
-  .product-title {
-    margin: 0;
-    font-weight: 600;
-    font-size: 0.94rem;
-    line-height: 1.4;
-  }
+.product-caption{
+  font-size:14px;
+  color:#444;
+}
 
-  .product-caption {
-    margin: 0;
-    font-size: 0.84rem;
-    color: #666;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+.product-cta-row{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+}
 
-  .product-tags {
-    margin: 0.15rem 0 0.25rem;
-    font-size: 0.78rem;
-    color: #999;
-  }
+.product-cta{
+  text-decoration:none;
+  font-weight:bold;
+  color:#cc3366;
+}
 
-  .product-cta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0.3rem;
-  }
+.product-meta{
+  font-size:12px;
+  color:#999;
+}
 
-  .product-cta {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.83rem;
-    color: #b35900;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid rgba(179, 89, 0, 0.18);
-    background: #fffaf5;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  .product-cta:hover {
-    background: #f6e1cf;
-  }
-
-  .product-meta {
-    font-size: 0.78rem;
-    color: #aaa;
-  }
-
-  .disclosure {
-    margin-top: 2.2rem;
-    font-size: 0.8rem;
-    color: #777;
-    line-height: 1.5;
-    text-align: center;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.75rem;
-    color: #aaa;
-    padding: 1.5rem 1rem 1.75rem;
-  }
-
-  @media (min-width: 768px) {
-    header h1 {
-      font-size: 2.2rem;
-    }
-  }
-
-  /* Wider screens: 3 columns like ROOM desktop */
-  @media (min-width: 900px) {
-    .product-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  /* Small-screen tweaks (optional, but keeps things tidy) */
-  @media (max-width: 600px) {
-    main {
-      padding: 1.25rem 0.9rem 2.5rem;
-    }
-    .product-body {
-      padding: 0.7rem 0.8rem 0.75rem;
-    }
-    .product-title {
-      font-size: 0.9rem;
-    }
-    .product-caption {
-      font-size: 0.82rem;
-    }
-    .product-cta {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.75rem;
-    }
-  }
 </style>
 </head>
+
 <body>
-  <header>
-    <h1>Kiki's Kitchen Table</h1>
-    <p>Simple tools I actually use in our tiny kitchen.</p>
-  </header>
 
-  <main>
-    <!-- INTRO ABOVE GRID -->
-    <section class="intro">
-      <p>
-        Welcome to <strong>Kiki's Kitchen Table</strong> — these are the small tools,
-        dishes, and pantry items you see in my videos. Some links are affiliate
-        links, which help our channel at no extra cost to you.
-      </p>
-    </section>
+<header>
+<h1>Kiki's Kitchen Table</h1>
+<div class="subtitle">Favorite kitchen finds and cozy cooking tools</div>
+</header>
 
-    <!-- GRID SECTION (Rakuten ROOM style) -->
-    <section>
-      <h2 class="section-heading">Kiki's Favorites</h2>
-      <p class="section-subtitle">
-        Everyday pieces from our tiny kitchen — click any card to see details.
-      </p>
-
-      <div class="product-grid">
-
-        <!-- easter carrot ratten woven basket -->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4l3EEjh"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-03-01-easter-carrot-basket.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Easter Carrot Rattan Woven Basket</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                Easter Carrot Shaped Rattan Woven Basket
-                11.6 x 9.6 inch Handwoven Storage Basket 
-                Wicker Bowls Food Serving Tray for Easter 
-                Egg Hunt Party Favors Fruit Candy Kitchen Table Decoration           
-              </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4l3EEjh"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article> 
-
-        <!-- easter bunny ceramic candy jar -->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4l91fLE"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-03-01-easter-bunny-ceramic-candy-jar.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Easter Bunny Ceramic Candy Jar</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                Easter Bunny Ceramic Candy Jar with Lid 
-                Bunny Easter Egg Candy Jar Ornament 
-                Decorative Storage Container Rabbit 
-                Food Storage Canister Cookie Jars for Spring Party Decoration            
-              </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4l91fLE"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article> 
-
-
-        <!-- spring flower lunch napkins-->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/40oDmpT"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-03-01-spring-flower-lunch-napkins.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Spring Flowers Luncheon Napkins</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                100 Spring Flowers Luncheon Napkins Watercolor 
-                Tulip Paper Hand Napkins 6.5 Inch Floral Garden Party 
-                Beverage Napkins for Baby Shower Wedding Easter Party Supplies                       
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/40oDmpT"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article> 
-
-        <!-- mud pie xmas deviled egg tray -->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4rZxZcB"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-03-10-mud-pie-xmas-deviled-egg-tray.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label" >Mud Pie Christmas Gold Edge Deviled Egg Tray Set</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                Mud Pie Christmas Gold Edge Deviled Egg Tray Set                    
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4rZxZcB"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article> 
-
-        <!-- heart napkins-->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4kA1zT5"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-02-12-valentines-day-heart-napkin-set.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Valentines Day Napkins</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              WorldBazaar Valentines Day Napkins 52pcs 
-              Heart Shaped Disposable Cocktail Napkins 
-              Valentines Decorative Napkins Table Decor 
-              Dinner Dessert Holiday Anniversary Birthday Party Supplies         
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4kA1zT5"
-                class="product-cta"h
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>         
+<div class="product-grid">
 
 
 
-        <!-- strawberry cup -->
+<article class="product-card">
 
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4rpKJIQ"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-02-01-strawberry-coffee-mug.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Strawberry Coffee Mug</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Strawberry Coffee Mug 
-              - Handcrafted Cute Mugs for Women 
-              - Dishwasher Safe Strawberry Mugs 
-              - Cute Coffee Mugs & Strawberry Cup for Coffee, Tea, or Cocoa 
-              - Ceramic Cute Mug Strawberry Mug (17 oz)              
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4rpKJIQ"
-                class="product-cta"h
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>         
+<a href="https://amzn.to/4l3EEjh" target="_blank">
+<img src="images/2026-03-01-easter-carrot-basket.jpg" class="product-image">
+</a>
 
-        <!-- Heart pancake mold -->
+<div class="product-body">
 
-        <article class="product-card">
-          <a
-            href="https://amzn.to/3ZDP1QZ"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-01-28-heart-pancake-mold-pics.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Heart Pancake molds</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Patelai 6 Pcs Heart Pancake Mold Fried Heart 
-              Shape Fried Egg Ring Set Stainless Steel Pancake Molds with Silicone Handle for 
-              Christmas Gifts Cooking Breakfast Omelette Sandwich Red 4 Inch 6 Inch
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/3ZDP1QZ"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- cookie cutter set -->
-
-        <article class="product-card">
-          <a
-            href="https://amzn.to/3NcaBJW"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-03-10-cookie-cutter-set.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Cookie Cutter Set</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                Cookie Cutters - Biscuit Cutters/Stainless Steel Dumpling 
-                Cutters/Cake Pastry Cutters/Cake Cookie 
-                Scone Cutters Molds stamps for Cooking Baking (3Pcs, Round Edge)
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/3NcaBJW"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Board Knife set -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4aH6or2"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2026-01-02-nambe-block-knife-set.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Block Knife Set</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-                Nambé Cheese Block and Knife Set – Round Acacia Wood Board Featuring 
-                Stainless Steel Details, Contemporary Tray with Spreader, 
-                Stylish Table Accent for Parties, Gatherings, and Dining
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4aH6or2"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>              
-
-        <!-- Cooking Tweezers -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4bbSjBW"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-30-cooking-tweezers.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Cooking Tweezers</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              ChefBee Kitchen Cooking Tongs Tweezers - 2PCS 12" Stainless Steel Kitchen Utensils, 
-              Metal Fine Tweezers Tongs with Precision Serrated Tips for Chef, Serving Food, Grill, Culinary, Pasta, Salad, BBQ                         
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4bbSjBW"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>        
-
-        <!-- Serving Tongs -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4jl00Ig"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-30-serving-tongs.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Serving Tongs</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              KEBE 2-PACK Serving Tongs for Buffet Party Catering, Thickening Food Serving Salad Cake Bread Kitchen Tongs, Stainless Steel              
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4jl00Ig"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
+<div class="product-label">Easter Carrot Rattan Woven Basket</div>
 
 
-        <!-- Mini Whiskes -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/3L8iWxg"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-30-mini-whisks.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Mini Whisks</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Walfos Mini Whisks Stainless Steel, Small Whisk 2 Pieces, 5in and 7in Tiny Whisk for Whisking, Beating, Blending Ingredients, Mixing Sauces
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/3L8iWxg"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
+
+<p class="product-caption">
+Easter Carrot Shaped Rattan Woven Basket 11.6 x 9.6 inch Handwoven Storage Basket Wicker Bowls Food Serving Tray for Easter Egg Hunt Party Favors Fruit Candy Kitchen Table Decoration
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4l3EEjh" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
 
 
-        <!-- Glass dinner plate -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/497W3C7"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-22-christmas-plate.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Dinner Plate</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              SHOWLOUE Glass Dinner Plate, Christmas Tree Dish Round Decorative Plates Clear Serving Plate for Food, Snack, Dessert, Home Wedding Decor
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/497W3C7"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
 
-        <!-- Snoopy Mug -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/494ip7o"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-22-snoopy-mug.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Snoopy Mug</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Silver Buffalo Peanuts Snoopy Santa Scarf Ceramic 3D Sculpted Mug
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/494ip7o"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
-        
-        <!-- Miele Vacuum Cleaner -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/48HoHuR"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-15-miele-image.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Vacuum Cleaner</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Miele Classic C1 Cat & Dog Bagged Canister Vacuum, Lotus White - Pet Hair, Portable
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/48HoHuR"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
+<article class="product-card">
 
-        <!-- Old English for light woods (set of 3 -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4iVERUC"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-15-old-english-wood-oil-set-of-three.jpg"
-              alt=""
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Wood Polish</div>
-            <h3 class="product-title">
-              
-            </h3>
-            <p class="product-caption">
-              Old English for Light Woods, 8 fl oz Bottle, Wood Polish (Pack of 3)
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4iVERUC"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
+<a href="https://amzn.to/4l91fLE" target="_blank">
+<img src="images/2026-03-01-easter-bunny-ceramic-candy-jar.jpg" class="product-image">
+</a>
 
-        <!-- Bialetti Pan -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/3KahTMP"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/bialetti-pan.jpg"
-              alt="Bialetti 10in nonstick frying pan"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Frying Pan</div>
-            <h3 class="product-title">
-              Bialetti Impact Textured Nonstick 10in Frying Pan
-            </h3>
-            <p class="product-caption">
-              Light, easy to clean, and perfect for everyday cooking in a small kitchen.
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/3KahTMP"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Kiki’s pick</span>
-            </div>
-          </div>
-        </article>
+<div class="product-body">
 
-        <!-- Selamica Bowls -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/3WVAhf1"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/selamica-bowls.jpg"
-              alt="Selamica mini ceramic dipping bowls, vintage blue"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Mini Bowls</div>
-            <h3 class="product-title">
-              Selamica Mini Ceramic Dipping Bowls (Set of 6)
-            </h3>
-            <p class="product-caption">
-              Perfect for soy sauce, pickles, dipping sauces, and little snacks —
-              the vintage blue pattern adds a cozy touch.
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/3WVAhf1"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">Set of 6</span>
-            </div>
-          </div>
-        </article>
+<div class="product-label">Easter Bunny Ceramic Candy Jar</div>
 
-        <!-- Onigiri Mold -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/49gjTNC"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/sushi-mold-onigiri.jpg"
-              alt="Onigiri mold set"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Kitchen Favorite</div>
-            <h3 class="product-title">Onigiri Mold Set (6-Piece)</h3>
-            <p class="product-caption">
-              Makes neat, even onigiri without sticky hands — great for lunches,
-              snacks, and quick meal prep.
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/49gjTNC"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">6-piece set</span>
-            </div>
-          </div>
-        </article>
 
-        <!-- Vegan Ramen -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/43RWNcP"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/vege-ramen.jpg"
-              alt="Vegan ramen variety pack"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Pantry Favorite</div>
-            <h3 class="product-title">
-              Vegan Ramen Variety Pack – 4 Flavors
-            </h3>
-            <p class="product-caption">
-              A tasty vegan ramen set with four different flavors — easy, cozy,
-              and perfect for quick lunches.
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/43RWNcP"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">12 servings</span>
-            </div>
-          </div>
-        </article>
 
-        <!-- Calrose Rice -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/49gsG24"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/calrose-rice-botan-5lb.jpg"
-              alt="Calrose Rice Botan 5 lb bag"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Rice</div>
-            <h3 class="product-title">Calrose Rice Botan – 5 lb</h3>
-            <p class="product-caption">
-              My go-to rice for onigiri and sushi sets — fluffy, delicious, and
-              very reliable.
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/49gsG24"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">5 lb bag</span>
-            </div>
-          </div>
-        </article>      
+<p class="product-caption">
+Easter Bunny Ceramic Candy Jar with Lid Bunny Easter Egg Candy Jar Ornament Decorative Storage Container Rabbit Food Storage Canister Cookie Jars for Spring Party Decoration
+</p>
 
-        <!-- Global Chef Knife -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/48BJT4b"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-04-global-chefs-knife.jpg"
-              alt="Global 8-Inch Chef's Knife"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Knife</div>
-            <h3 class="product-title">Global 8-Inch Chef's KnifeC</h3>
-            <p class="product-caption">
-              Great cutting knife razor sharp and made with lightweight Japanese stainless steel
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/48BJT4b"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">global chef's knife</span>
-            </div>
-          </div>
-        </article>
+<div class="product-cta-row">
 
-        <!-- Global Chef Knife (set of 3) -->
-        <article class="product-card">
-          <a
-            href="https://amzn.to/4pXoWrv"
-            class="product-image-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="images/2025-12-05-global-knife-set.jpg"
-              alt="Global 3 Piece Starter Set"
-              class="product-image"
-            />
-            <div class="product-heart">♡</div>
-          </a>
-          <div class="product-body">
-            <div class="product-label">Knife</div>
-            <h3 class="product-title">Global 3 Piece Starter Set  (8 Inch, 5 inch, 3 1/2 inch) </h3>
-            <p class="product-caption">
-              Global 3 Piece Starter Set - 8 inch Chef, 5 inch Utility, 3 1/2 inch Paring, 
-              Lightweight Japanese Stainless Steel, Razor Sharp Edge, Made in Japan,  
-              I use all three extensively. Get your set today!
-            </p>
-            <div class="product-cta-row">
-              <a
-                href="https://amzn.to/4pXoWrv"
-                class="product-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on Amazon →
-              </a>
-              <span class="product-meta">global knife set</span>
-            </div>
-          </div>
-        </article>        
-        
-      </div>
-    </section>  
+<a href="https://amzn.to/4l91fLE" class="product-cta" target="_blank">
+View on Amazon →
+</a>
 
-    
-     <!-- DISCLOSURE -->
-    <section class="disclosure">
-      <p>
-        <strong>Affiliate Disclosure</strong><br />
-        As an Amazon Associate, we earn from qualifying purchases.
-      </p>
-    </section>
-  </main>
+<span class="product-meta">
+Kiki’s pick
+</span>
 
-  <footer>
-    &copy; <span id="year"></span> Kiki's Kitchen Table
-  </footer>
+</div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/40oDmpT" target="_blank">
+<img src="images/2026-03-01-spring-flower-lunch-napkins.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Spring Flowers Luncheon Napkins</div>
+
+
+
+<p class="product-caption">
+100 Spring Flowers Luncheon Napkins Watercolor Tulip Paper Hand Napkins 6.5 Inch Floral Garden Party Beverage Napkins for Baby Shower Wedding Easter Party Supplies
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/40oDmpT" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4rZxZcB" target="_blank">
+<img src="images/2026-03-10-mud-pie-xmas-deviled-egg-tray.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Mud Pie Christmas Gold Edge Deviled Egg Tray Set</div>
+
+
+
+<p class="product-caption">
+Mud Pie Christmas Gold Edge Deviled Egg Tray Set
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4rZxZcB" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4kA1zT5" target="_blank">
+<img src="images/2026-02-12-valentines-day-heart-napkin-set.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Valentines Day Napkins</div>
+
+
+
+<p class="product-caption">
+WorldBazaar Valentines Day Napkins 52pcs Heart Shaped Disposable Cocktail Napkins Valentines Decorative Napkins Table Decor Dinner Dessert Holiday Anniversary Birthday Party Supplies
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4kA1zT5" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4rpKJIQ" target="_blank">
+<img src="images/2026-02-01-strawberry-coffee-mug.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Strawberry Coffee Mug</div>
+
+
+
+<p class="product-caption">
+Strawberry Coffee Mug - Handcrafted Cute Mugs for Women - Dishwasher Safe Strawberry Mugs - Cute Coffee Mugs &amp; Strawberry Cup for Coffee, Tea, or Cocoa - Ceramic Cute Mug Strawberry Mug (17 oz)
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4rpKJIQ" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/3ZDP1QZ" target="_blank">
+<img src="images/2026-01-28-heart-pancake-mold-pics.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Heart Pancake molds</div>
+
+
+
+<p class="product-caption">
+Patelai 6 Pcs Heart Pancake Mold Fried Heart Shape Fried Egg Ring Set Stainless Steel Pancake Molds with Silicone Handle for Christmas Gifts Cooking Breakfast Omelette Sandwich Red 4 Inch 6 Inch
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/3ZDP1QZ" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/3NcaBJW" target="_blank">
+<img src="images/2026-03-10-cookie-cutter-set.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Cookie Cutter Set</div>
+
+
+
+<p class="product-caption">
+Cookie Cutters - Biscuit Cutters/Stainless Steel Dumpling Cutters/Cake Pastry Cutters/Cake Cookie Scone Cutters Molds stamps for Cooking Baking (3Pcs, Round Edge)
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/3NcaBJW" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4aH6or2" target="_blank">
+<img src="images/2026-01-02-nambe-block-knife-set.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Block Knife Set</div>
+
+
+
+<p class="product-caption">
+Nambé Cheese Block and Knife Set – Round Acacia Wood Board Featuring Stainless Steel Details, Contemporary Tray with Spreader, Stylish Table Accent for Parties, Gatherings, and Dining
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4aH6or2" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4bbSjBW" target="_blank">
+<img src="images/2025-12-30-cooking-tweezers.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Cooking Tweezers</div>
+
+
+
+<p class="product-caption">
+ChefBee Kitchen Cooking Tongs Tweezers - 2PCS 12&#34; Stainless Steel Kitchen Utensils, Metal Fine Tweezers Tongs with Precision Serrated Tips for Chef, Serving Food, Grill, Culinary, Pasta, Salad, BBQ
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4bbSjBW" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4jl00Ig" target="_blank">
+<img src="images/2025-12-30-serving-tongs.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Serving Tongs</div>
+
+
+
+<p class="product-caption">
+KEBE 2-PACK Serving Tongs for Buffet Party Catering, Thickening Food Serving Salad Cake Bread Kitchen Tongs, Stainless Steel
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4jl00Ig" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/3L8iWxg" target="_blank">
+<img src="images/2025-12-30-mini-whisks.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Mini Whisks</div>
+
+
+
+<p class="product-caption">
+Walfos Mini Whisks Stainless Steel, Small Whisk 2 Pieces, 5in and 7in Tiny Whisk for Whisking, Beating, Blending Ingredients, Mixing Sauces
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/3L8iWxg" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/497W3C7" target="_blank">
+<img src="images/2025-12-22-christmas-plate.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Dinner Plate</div>
+
+
+
+<p class="product-caption">
+SHOWLOUE Glass Dinner Plate, Christmas Tree Dish Round Decorative Plates Clear Serving Plate for Food, Snack, Dessert, Home Wedding Decor
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/497W3C7" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/494ip7o" target="_blank">
+<img src="images/2025-12-22-snoopy-mug.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Snoopy Mug</div>
+
+
+
+<p class="product-caption">
+Silver Buffalo Peanuts Snoopy Santa Scarf Ceramic 3D Sculpted Mug
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/494ip7o" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/48HoHuR" target="_blank">
+<img src="images/2025-12-15-miele-image.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Vacuum Cleaner</div>
+
+
+
+<p class="product-caption">
+Miele Classic C1 Cat &amp; Dog Bagged Canister Vacuum, Lotus White - Pet Hair, Portable
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/48HoHuR" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4iVERUC" target="_blank">
+<img src="images/2025-12-15-old-english-wood-oil-set-of-three.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Wood Polish</div>
+
+
+
+<p class="product-caption">
+Old English for Light Woods, 8 fl oz Bottle, Wood Polish (Pack of 3)
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4iVERUC" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/3KahTMP" target="_blank">
+<img src="images/bialetti-pan.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Frying Pan</div>
+
+
+<h3 class="product-title">Bialetti Impact Textured Nonstick 10in Frying Pan</h3>
+
+
+<p class="product-caption">
+Light, easy to clean, and perfect for everyday cooking in a small kitchen.
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/3KahTMP" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Kiki’s pick
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/3WVAhf1" target="_blank">
+<img src="images/selamica-bowls.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Mini Bowls</div>
+
+
+<h3 class="product-title">Selamica Mini Ceramic Dipping Bowls (Set of 6)</h3>
+
+
+<p class="product-caption">
+Perfect for soy sauce, pickles, dipping sauces, and little snacks — the vintage blue pattern adds a cozy touch.
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/3WVAhf1" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+Set of 6
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/49gjTNC" target="_blank">
+<img src="images/sushi-mold-onigiri.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Kitchen Favorite</div>
+
+
+<h3 class="product-title">Onigiri Mold Set (6-Piece)</h3>
+
+
+<p class="product-caption">
+Makes neat, even onigiri without sticky hands — great for lunches, snacks, and quick meal prep.
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/49gjTNC" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+6-piece set
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/43RWNcP" target="_blank">
+<img src="images/vege-ramen.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Pantry Favorite</div>
+
+
+<h3 class="product-title">Vegan Ramen Variety Pack – 4 Flavors</h3>
+
+
+<p class="product-caption">
+A tasty vegan ramen set with four different flavors — easy, cozy, and perfect for quick lunches.
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/43RWNcP" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+12 servings
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/49gsG24" target="_blank">
+<img src="images/calrose-rice-botan-5lb.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Rice</div>
+
+
+<h3 class="product-title">Calrose Rice Botan – 5 lb</h3>
+
+
+<p class="product-caption">
+My go-to rice for onigiri and sushi sets — fluffy, delicious, and very reliable.
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/49gsG24" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+5 lb bag
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/48BJT4b" target="_blank">
+<img src="images/2025-12-04-global-chefs-knife.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Knife</div>
+
+
+<h3 class="product-title">Global 8-Inch Chef&#39;s Knife</h3>
+
+
+<p class="product-caption">
+Great cutting knife razor sharp and made with lightweight Japanese stainless steel
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/48BJT4b" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+global chef&#39;s knife
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article class="product-card">
+
+<a href="https://amzn.to/4pXoWrv" target="_blank">
+<img src="images/2025-12-05-global-knife-set.jpg" class="product-image">
+</a>
+
+<div class="product-body">
+
+<div class="product-label">Knife</div>
+
+
+<h3 class="product-title">Global 3 Piece Starter Set (8 Inch, 5 inch, 3 1/2 inch)</h3>
+
+
+<p class="product-caption">
+Global 3 Piece Starter Set - 8 inch Chef, 5 inch Utility, 3 1/2 inch Paring, Lightweight Japanese Stainless Steel, Razor Sharp Edge, Made in Japan, I use all three extensively. Get your set today!
+</p>
+
+<div class="product-cta-row">
+
+<a href="https://amzn.to/4pXoWrv" class="product-cta" target="_blank">
+View on Amazon →
+</a>
+
+<span class="product-meta">
+global knife set
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+</div>
+
 </body>
 </html>
