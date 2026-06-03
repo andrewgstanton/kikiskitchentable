@@ -1,5 +1,32 @@
 [
   {
+    "id": "2026-06-03-rice-paddel",
+    "label": "Rice Paddle Tool",
+    "title": "",
+    "caption": "Rice Paddle Tool,Non-Stick Rice Spoon,Standing Rice Spatula with Smile Face(2 Pcak/white)",
+    "amazon_url": "https://www.amazon.com/dp/B08Q7N8HRC?tag=kikiskitchent-20",
+    "image": "images/2026-06-03-rice-paddel.jpg",
+    "meta": "Kiki’s pick"
+  },
+  {
+    "id": "sushi-mold-onigiri",
+    "label": "Kitchen Favorite",
+    "title": "Onigiri Mold Set (6-Piece)",
+    "caption": "Makes neat, even onigiri without sticky hands — great for lunches, snacks, and quick meal prep.",
+    "amazon_url": "https://amzn.to/49gjTNC",
+    "image": "images/sushi-mold-onigiri.jpg",
+    "meta": "6-piece set"
+  },
+  {
+    "id": "calrose-rice-botan-5lb",
+    "label": "Rice",
+    "title": "Calrose Rice Botan – 5 lb",
+    "caption": "My go-to rice for onigiri and sushi sets — fluffy, delicious, and very reliable.",
+    "amazon_url": "https://amzn.to/49gsG24",
+    "image": "images/calrose-rice-botan-5lb.jpg",
+    "meta": "5 lb bag"
+  },
+  {
     "id": "2026-03-01-easter-carrot-basket",
     "label": "Easter Carrot Rattan Woven Basket",
     "title": "",
@@ -162,15 +189,6 @@
     "meta": "Set of 6"
   },
   {
-    "id": "sushi-mold-onigiri",
-    "label": "Kitchen Favorite",
-    "title": "Onigiri Mold Set (6-Piece)",
-    "caption": "Makes neat, even onigiri without sticky hands — great for lunches, snacks, and quick meal prep.",
-    "amazon_url": "https://amzn.to/49gjTNC",
-    "image": "images/sushi-mold-onigiri.jpg",
-    "meta": "6-piece set"
-  },
-  {
     "id": "vege-ramen",
     "label": "Pantry Favorite",
     "title": "Vegan Ramen Variety Pack – 4 Flavors",
@@ -178,15 +196,6 @@
     "amazon_url": "https://amzn.to/43RWNcP",
     "image": "images/vege-ramen.jpg",
     "meta": "12 servings"
-  },
-  {
-    "id": "calrose-rice-botan-5lb",
-    "label": "Rice",
-    "title": "Calrose Rice Botan – 5 lb",
-    "caption": "My go-to rice for onigiri and sushi sets — fluffy, delicious, and very reliable.",
-    "amazon_url": "https://amzn.to/49gsG24",
-    "image": "images/calrose-rice-botan-5lb.jpg",
-    "meta": "5 lb bag"
   },
   {
     "id": "2025-12-04-global-chefs-knife",
