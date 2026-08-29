@@ -1,7 +1,34 @@
 [
   {
+    "id": "2026-08-29-kitchen-shears",
+    "label": "Kitchen Shears",
+    "title": "Kitchen Shears",
+    "caption": "Gidli Kitchen Shears & Seafood Scissors Set - Lifetime Replace. Warranty* | Gidli Heavy Duty Utility Stainless Steel All Purpose Ultra Sharp Scissors...",
+    "amazon_url": "https://www.amazon.com/dp/B073H8QN22?tag=kikiskitchent-20",
+    "image": "images/2026-08-29-kitchen-shears.jpg",
+    "meta": "Kiki’s pick"
+  },
+  {
+    "id": "2026-08-29-measuring-spoons-2",
+    "label": "Yakisoba",
+    "title": "Maruchan Yakisoba",
+    "caption": "Maruchan Yakisoba, Teriyaki Chicken Flavor – Stir-Fried Japanese Instant Ramen Noodles, High Protein Microwavable Meal – 3.98 Oz. (8 Pack)",
+    "amazon_url": "https://www.amazon.com/dp/B076CBQZDD?tag=kikiskitchent-20",
+    "image": "images/2026-08-29-yakisoba.jpg",
+    "meta": "Kiki’s pick"
+  },
+  {
+    "id": "2026-08-29-measuring-spoons",
+    "label": "Measuring Spoons",
+    "title": "Measuring Spoona",
+    "caption": "OXO Good Grips 4 Piece Stainless Steel Measuring Spoons with Magnetic Snaps",
+    "amazon_url": "https://www.amazon.com/dp/B00L9WK26A?tag=kikiskitchent-20",
+    "image": "images/2026-08-29-measuring-spoons.jpg",
+    "meta": "Kiki’s pick"
+  },
+  {
     "id": "2026-08-11-cooking_tweezer_tongs",
-    "label": "Cooking Tweezer Tongscoo",
+    "label": "Cooking Tweezer Tongs",
     "title": "Cooking Tweezer Tongs",
     "caption": "Professional Fine Cooking Tweezer Tongs,High-Precision Stainless Steel Kitchen Tweezers Tongs - 1pcs 12\" and 3pcs 6.3\"",
     "amazon_url": "https://www.amazon.com/dp/B07LCL9TB7?tag=kikiskitchent-20",
